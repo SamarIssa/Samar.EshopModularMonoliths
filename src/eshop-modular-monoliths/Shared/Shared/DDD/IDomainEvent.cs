@@ -1,6 +1,8 @@
-﻿namespace Shared.DDD;
+﻿using MediatR;
 
-public interface IDomainEvent
+namespace Shared.DDD;
+
+public interface IDomainEvent: INotification
 {
     Guid EventId => Guid.NewGuid();
     public DateTime OccurredOn => DateTime.UtcNow;

@@ -1,7 +1,7 @@
 ﻿
-using Basket.Products.Events;
+using Catalog.Products.Events;
 
-namespace Basket.Products.Models;
+namespace Catalog.Products.Models;
 
 public class Product : Aggregate<Guid>
 {
