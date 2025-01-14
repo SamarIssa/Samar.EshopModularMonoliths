@@ -1,12 +1,4 @@
-﻿using Basket.Data;
-using FluentValidation;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.EntityFrameworkCore.Migrations;
-using Shared.Behaviors;
-using Shared.Data;
-using Shared.Data.Interceptors;
-using Shared.Data.Seed;
-using System.Reflection;
+﻿
 
 namespace Basket;
 
@@ -15,15 +7,8 @@ public static class BasketModule
     public static IServiceCollection AddBasketModule(this IServiceCollection services,IConfiguration configuration)
     {
         //Application Use Case Services
-        services.AddMediatR(config =>
-        {
-            config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-            config.AddOpenBehavior(typeof(ValidationBehavior<,>));
-            config.AddOpenBehavior(typeof(LoggingBehavior<,>));
-
-        });
-
-        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        services.AddScoped<IBasketRepository, BasketRepository>();
+        services.Decorate<IBasketRepository, CachedBasketRepository>();
 
         //Data Infrastructure services
         var connectionString = configuration.GetConnectionString("Database");

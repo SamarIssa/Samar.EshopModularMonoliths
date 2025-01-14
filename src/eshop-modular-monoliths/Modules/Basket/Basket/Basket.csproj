@@ -9,10 +9,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Shared\Shared\Shared.csproj" />
+    <ProjectReference Include="..\..\Catalog\Catalog.Contracts\Catalog.Contracts.csproj" />
   </ItemGroup>
 
 
   <ItemGroup>
+    <Folder Include="Basket\EventHandlers\" />
+    <Folder Include="Basket\Features\CheckOutBasket\" />
+    <Folder Include="Basket\Features\UpdateItemPriceInBasket\" />
     <Folder Include="Data\Seed\" />
   </ItemGroup>
 
