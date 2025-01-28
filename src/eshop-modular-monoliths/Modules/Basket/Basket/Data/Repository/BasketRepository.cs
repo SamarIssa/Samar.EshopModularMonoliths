@@ -1,6 +1,4 @@
-﻿
-
-namespace Basket.Data.Repository;
+﻿namespace Basket.Data.Repository;
 public class BasketRepository(BasketDbContext dbContext)
     : IBasketRepository
 {

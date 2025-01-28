@@ -1,7 +1,3 @@
-
-
-
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseSerilog((context, config) =>
@@ -15,6 +11,8 @@ builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = builder.Configuration.GetConnectionString("Redis");
 });
+
+builder.Services.AddMassTransitWithAssemblies(builder.Configuration, typeof(CatalogModule).Assembly, typeof(BasketModule).Assembly);
 
 //Add services to container
 builder.Services.AddBasketModule(builder.Configuration).
