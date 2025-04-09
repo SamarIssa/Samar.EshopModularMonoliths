@@ -15,7 +15,7 @@
 
 
   <ItemGroup>
-    <Folder Include="Basket\Features\CheckOutBasket\" />
+    <Folder Include="Data\Migrations\" />
     <Folder Include="Data\Seed\" />
   </ItemGroup>
 

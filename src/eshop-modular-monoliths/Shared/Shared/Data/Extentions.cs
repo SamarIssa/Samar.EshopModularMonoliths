@@ -10,7 +10,7 @@ public static class Extentions
     public static IApplicationBuilder UseMigration<T>(this IApplicationBuilder app) where T : DbContext
     {
          MigrateDatabaseAsync<T>(app.ApplicationServices).GetAwaiter().GetResult();
-        SeedDataAsync<T>(app.ApplicationServices).GetAwaiter().GetResult();
+         SeedDataAsync<T>(app.ApplicationServices).GetAwaiter().GetResult();
 
         return app;
     }
@@ -31,6 +31,8 @@ public static class Extentions
         using var scope = applicationServices.CreateScope();
 
         var context = scope.ServiceProvider.GetRequiredService<T>();
+
+
 
         await context.Database.MigrateAsync();
     }
